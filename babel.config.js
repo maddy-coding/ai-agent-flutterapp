@@ -3,6 +3,6 @@ module.exports = function babelConfig(api) {
 
   return {
     presets: ['babel-preset-expo'],
+    plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
   };
 };
-
