@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Nexus Agent",
+    "slug": "nexus-agent",
+    "scheme": "nexusagent",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#07111D"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nexus.agent"
+    },
+    "android": {
+      "package": "com.nexus.agent",
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      "expo-notifications"
+    ],
+    "experiments": {
+      "autolinkingModuleResolution": true
+    }
+  }
+}
+

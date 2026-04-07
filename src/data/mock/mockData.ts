@@ -1,0 +1,220 @@
+import {
+  DashboardMetric,
+  IntegrationAccount,
+  MessageLog,
+  ResponseHeatCell,
+  Template,
+} from '@/types/nexus';
+
+export const seedMessages: MessageLog[] = [
+  {
+    id: 'msg-1',
+    platform: 'gmail',
+    senderName: 'Alicia Romero',
+    senderHandle: 'alicia@northbridge.io',
+    subject: 'Launch blocker for Friday',
+    preview:
+      'Need a decision on the revised scope before 3pm or we miss the client launch window.',
+    receivedAt: '2026-04-07T08:18:00.000Z',
+    unread: true,
+    firstContact: false,
+    requiresResponse: true,
+    responseDueMinutes: 42,
+    tags: ['client', 'delivery'],
+  },
+  {
+    id: 'msg-2',
+    platform: 'whatsapp',
+    senderName: 'Samir Khan',
+    senderHandle: '+92 300 0000000',
+    preview: 'Hey, checking if you saw my note from yesterday. Happy to jump on a call.',
+    receivedAt: '2026-04-07T07:46:00.000Z',
+    unread: true,
+    firstContact: true,
+    requiresResponse: true,
+    tags: ['lead'],
+  },
+  {
+    id: 'msg-3',
+    platform: 'instagram',
+    senderName: 'Studio Meridian',
+    senderHandle: '@studio_meridian',
+    preview:
+      'Loved your campaign work. Are you taking on new brand partnerships this month?',
+    receivedAt: '2026-04-07T06:31:00.000Z',
+    unread: true,
+    firstContact: true,
+    requiresResponse: true,
+    tags: ['sales'],
+  },
+  {
+    id: 'msg-4',
+    platform: 'facebook',
+    senderName: 'Dispatch Ops',
+    senderHandle: 'Dispatch Ops',
+    preview:
+      'Following up on the pending vendor form. Please send the signed copy when convenient.',
+    receivedAt: '2026-04-06T16:15:00.000Z',
+    unread: false,
+    firstContact: false,
+    requiresResponse: true,
+    responseDueMinutes: 1440,
+    tags: ['follow-up'],
+  },
+  {
+    id: 'msg-5',
+    platform: 'x',
+    senderName: 'CryptoBoost',
+    senderHandle: '@boostreturns',
+    preview: 'Double your returns instantly with our guaranteed strategy. Limited slots now.',
+    receivedAt: '2026-04-06T14:01:00.000Z',
+    unread: true,
+    firstContact: false,
+    requiresResponse: false,
+    tags: ['spam'],
+  },
+  {
+    id: 'msg-6',
+    platform: 'outlook',
+    senderName: 'Marta Velasquez',
+    senderHandle: 'marta@brightledger.com',
+    subject: 'Seguimos con la propuesta',
+    preview:
+      'Hola, queria confirmar si podemos retomar la propuesta manana. Gracias por tu tiempo.',
+    receivedAt: '2026-04-06T11:24:00.000Z',
+    unread: true,
+    firstContact: false,
+    requiresResponse: true,
+    tags: ['spanish'],
+  },
+];
+
+export const seedTemplates: Template[] = [
+  {
+    id: 'tpl-1',
+    name: 'Busy Until Friday',
+    category: 'Urgent',
+    tone: 'formal',
+    content:
+      'Hi {{sender_name}}, thanks for flagging this. I am tied up until Friday, but I have noted the priority and will send a concrete update by {{current_time}}.',
+    variables: ['{{sender_name}}', '{{current_time}}'],
+  },
+  {
+    id: 'tpl-2',
+    name: 'Warm First Contact',
+    category: 'Casual',
+    tone: 'friendly',
+    content:
+      'Hi {{sender_name}}, thanks for reaching out. I saw your note about {{original_subject}} and would be glad to continue the conversation once I have a bit more room later today.',
+    variables: ['{{sender_name}}', '{{original_subject}}'],
+  },
+  {
+    id: 'tpl-3',
+    name: 'Sales Qualification',
+    category: 'Sales',
+    tone: 'direct',
+    content:
+      'Hi {{sender_name}}, appreciate the interest. Could you share your timeline, budget range, and the main outcome you want from this collaboration?',
+    variables: ['{{sender_name}}'],
+  },
+];
+
+export const seedIntegrations: IntegrationAccount[] = [
+  {
+    id: 'gmail',
+    label: 'Gmail',
+    authType: 'Google OAuth 2.0',
+    connected: true,
+    locked: true,
+    lastSync: '2 min ago',
+    securityNote: 'Token stored in device keychain and gated by biometrics.',
+  },
+  {
+    id: 'outlook',
+    label: 'Outlook',
+    authType: 'Microsoft Graph OAuth 2.0',
+    connected: false,
+    locked: true,
+    lastSync: 'Not connected',
+    securityNote: 'Uses delegated Microsoft Graph access for mail triage.',
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    authType: 'Meta Graph API',
+    connected: true,
+    locked: true,
+    lastSync: '9 min ago',
+    securityNote: 'Business or Creator accounts only.',
+  },
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    authType: 'Meta Graph API',
+    connected: true,
+    locked: true,
+    lastSync: '11 min ago',
+    securityNote: 'Pages and Messenger conversations sync through Meta.',
+  },
+  {
+    id: 'whatsapp',
+    label: 'WhatsApp',
+    authType: 'Business API or Accessibility bridge',
+    connected: false,
+    locked: true,
+    lastSync: 'Awaiting setup',
+    securityNote: 'Personal automation requires Android-only accessibility flows.',
+  },
+  {
+    id: 'x',
+    label: 'X (Twitter)',
+    authType: 'API v2 DMs',
+    connected: false,
+    locked: true,
+    lastSync: 'Awaiting setup',
+    securityNote: 'DM access requires elevated API app permissions.',
+  },
+];
+
+export const dashboardMetrics: DashboardMetric[] = [
+  {
+    label: '38',
+    value: 'avg reply min',
+    caption: '24% faster than last week',
+  },
+  {
+    label: '11',
+    value: 'pending actions',
+    caption: '4 need approval in the next hour',
+  },
+  {
+    label: '7',
+    value: 'ghost mode threads',
+    caption: 'Muted contacts are auto-handled',
+  },
+];
+
+export const responseHeatmap: ResponseHeatCell[] = [
+  { day: 'Mon', band: 'Morning', score: 0.2 },
+  { day: 'Mon', band: 'Midday', score: 0.7 },
+  { day: 'Mon', band: 'Evening', score: 0.4 },
+  { day: 'Tue', band: 'Morning', score: 0.4 },
+  { day: 'Tue', band: 'Midday', score: 0.9 },
+  { day: 'Tue', band: 'Evening', score: 0.6 },
+  { day: 'Wed', band: 'Morning', score: 0.5 },
+  { day: 'Wed', band: 'Midday', score: 0.8 },
+  { day: 'Wed', band: 'Evening', score: 0.3 },
+  { day: 'Thu', band: 'Morning', score: 0.3 },
+  { day: 'Thu', band: 'Midday', score: 0.6 },
+  { day: 'Thu', band: 'Evening', score: 0.5 },
+  { day: 'Fri', band: 'Morning', score: 0.8 },
+  { day: 'Fri', band: 'Midday', score: 1 },
+  { day: 'Fri', band: 'Evening', score: 0.7 },
+  { day: 'Sat', band: 'Morning', score: 0.2 },
+  { day: 'Sat', band: 'Midday', score: 0.4 },
+  { day: 'Sat', band: 'Evening', score: 0.2 },
+  { day: 'Sun', band: 'Morning', score: 0.1 },
+  { day: 'Sun', band: 'Midday', score: 0.3 },
+  { day: 'Sun', band: 'Evening', score: 0.1 },
+];
+

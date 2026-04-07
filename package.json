@@ -1,0 +1,43 @@
+{
+  "name": "nexus-agent",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "latest",
+    "@nozbe/watermelondb": "latest",
+    "@react-navigation/bottom-tabs": "latest",
+    "@react-navigation/native": "latest",
+    "@tanstack/react-query": "latest",
+    "expo": "^55.0.0",
+    "expo-background-fetch": "^55.0.0",
+    "expo-linear-gradient": "^55.0.0",
+    "expo-local-authentication": "^55.0.0",
+    "expo-notifications": "^55.0.0",
+    "expo-status-bar": "^55.0.0",
+    "expo-task-manager": "^55.0.0",
+    "react": "19.2.0",
+    "react-native": "0.83.2",
+    "react-native-gesture-handler": "latest",
+    "react-native-keychain": "latest",
+    "react-native-safe-area-context": "latest",
+    "react-native-screens": "latest",
+    "zustand": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@types/react": "latest",
+    "babel-preset-expo": "^55.0.0",
+    "typescript": "latest"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
